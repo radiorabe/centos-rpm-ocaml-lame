@@ -8,7 +8,7 @@ URL:      https://github.com/savonet/ocaml-lame
 Source0:  https://github.com/savonet/ocaml-lame/releases/download/0.3.3/ocaml-lame-0.3.3.tar.gz
 
 BuildRequires: ocaml
-BuildRequires: camlidl
+BuildRequires: ocaml-camlidl
 BuildRequires: lame-devel
 Requires:      lame
 
