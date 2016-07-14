@@ -8,6 +8,7 @@ URL:      https://github.com/savonet/ocaml-lame
 Source0:  https://github.com/savonet/ocaml-lame/releases/download/0.3.3/ocaml-lame-0.3.3.tar.gz
 
 BuildRequires: ocaml
+BuildRequires: camlidl
 BuildRequires: lame-devel
 Requires:      lame
 
@@ -27,6 +28,7 @@ export OCAMLFIND_LDCONF=ignore
 export DLLDIR=$OCAMLFIND_DESTDIR/stublibs
 
 install -d $OCAMLFIND_DESTDIR/%{ocamlpck}
+install -d $OCAMLFIND_DESTDIR/stublibs
 make install
 
 %files
