@@ -39,9 +39,15 @@ make install
 /usr/lib64/ocaml/lame/lame.cmx
 /usr/lib64/ocaml/lame/lame.cmxa
 /usr/lib64/ocaml/lame/lame.mli
+/usr/lib64/ocaml/lame/lame.cmxs
+/usr/lib64/ocaml/lame/lame_dynlink.mli
+/usr/lib64/ocaml/lame/lame_loader.cma
+/usr/lib64/ocaml/lame/lame_loader.cmi
+/usr/lib64/ocaml/lame/lame_loader.cmx
+/usr/lib64/ocaml/lame/lame_loader.cmxs
 
 %description
-OCAML bindings for the liblame based on based on Madlld example.
+OCAML bindings for the liblame
 
 
 %changelog
