@@ -24,7 +24,6 @@ make all
 %install
 export DESTDIR=%{buildroot}
 export OCAMLFIND_DESTDIR=%{buildroot}$(ocamlfind printconf destdir)
-export OCAMLFIND_LDCONF=ignore
 export DLLDIR=$OCAMLFIND_DESTDIR/stublibs
 
 install -d $OCAMLFIND_DESTDIR/%{ocamlpck}
