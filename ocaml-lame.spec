@@ -32,7 +32,6 @@ make install
 
 %files
 /usr/lib64/ocaml/lame/META
-/usr/lib64/ocaml/lame/dlllame_stubs.so
 /usr/lib64/ocaml/lame/liblame_stubs.a
 /usr/lib64/ocaml/lame/lame.a
 /usr/lib64/ocaml/lame/lame.cma
