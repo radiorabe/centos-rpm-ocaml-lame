@@ -32,7 +32,6 @@ make install
 
 %files
 /usr/lib64/ocaml/lame/META
-/usr/lib64/ocaml/lame/liblame_stubs.a
 /usr/lib64/ocaml/lame/lame.a
 /usr/lib64/ocaml/lame/lame.cma
 /usr/lib64/ocaml/lame/lame.cmi
@@ -45,6 +44,9 @@ make install
 /usr/lib64/ocaml/lame/lame_loader.cmi
 /usr/lib64/ocaml/lame/lame_loader.cmx
 /usr/lib64/ocaml/lame/lame_loader.cmxs
+/usr/lib64/ocaml/lame/liblame_stubs.a
+/usr/lib64/ocaml/stublibs/dlllame_stubs.so
+/usr/lib64/ocaml/stublibs/dlllame_stubs.so.owner
 
 %description
 OCAML bindings for the liblame
