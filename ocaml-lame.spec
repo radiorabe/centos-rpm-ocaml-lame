@@ -11,6 +11,7 @@ BuildRequires: ocaml
 BuildRequires: ocaml-camlidl
 BuildRequires: lame-devel
 Requires:      lame
+Provides:      ocaml(Lame_dynlink)
 
 %prep
 %setup -q 
