@@ -4,11 +4,10 @@
 
 set -xe
 
-curl -o /etc/yum.repos.d/liquidsoap.repo https://download.opensuse.org/repositories/home:/radiorabe:/liquidsoap/CentOS_7/home:radiorabe:liquidsoap.repo
+curl -o /etc/yum.repos.d/ocaml.repo "https://download.opensuse.org/repositories/home:/radiorabe:/liquidsoap:/ocaml/CentOS_8/home:radiorabe:liquidsoap:ocaml.repo"
 
-yum -y install \
-    epel-release \
-    http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+dnf config-manager --set-disabled epel
+dnf -y install lame-devel --enablerepo=PowerTools
 
 chown root:root ocaml-lame.spec
 

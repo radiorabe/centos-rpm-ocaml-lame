@@ -1,20 +1,19 @@
 Name:     ocaml-lame
-Version:  0.3.3
-Release:  3%{?dist}
+Version:  0.3.4
+Release:  0.1%{?dist}
 Summary:  OCaml bindings for the liblame
 
 %global libname %(echo %{name} | sed -e 's/^ocaml-//')
 
 License:  GPLv2+
 URL:      https://github.com/savonet/ocaml-lame
-Source0:  https://github.com/savonet/ocaml-lame/releases/download/0.3.3/ocaml-lame-0.3.3.tar.gz
+Source0:  https://github.com/savonet/ocaml-lame/archive/v%{version}.tar.gz?#/%{name}-%{version}.tar.gz
 
 BuildRequires: ocaml
 BuildRequires: ocaml-findlib
-BuildRequires: ocaml-camlidl
-BuildRequires: ocaml-findlib
+BuildRequires: ocaml-dune-devel
 BuildRequires: lame-devel
-Requires:      lame
+Requires:      lame-libs
 Provides:      ocaml(Lame_dynlink)
 
 
@@ -35,26 +34,20 @@ files for developing applications that use %{name}.
 %autosetup -n %{name}-%{version}
 
 %build
-./configure \
-   --prefix=%{_prefix} \
-   --disable-ldconf
-make all
+dune build
 
 %install
-export DESTDIR=%{buildroot}
-export OCAMLFIND_DESTDIR=%{buildroot}$(ocamlfind printconf destdir)
-export DLLDIR=$OCAMLFIND_DESTDIR/stublibs
+dune install \
+  --prefix %{buildroot} \
+  --libdir %{buildroot}$(ocamlfind printconf destdir)
+rm -rf %{buildroot}/doc
 
-install -d $OCAMLFIND_DESTDIR/%{ocamlpck}
-install -d $OCAMLFIND_DESTDIR/stublibs
-make install
 
 %files
-%doc README
+%doc README.md CHANGES
 %license COPYING
 %{_libdir}/ocaml/%{libname}
 %{_libdir}/ocaml/stublibs/dll%{libname}_stubs.so
-%{_libdir}/ocaml/stublibs/dll%{libname}_stubs.so.owner
 %ifarch %{ocaml_native_compiler}
 %exclude %{_libdir}/ocaml/%{libname}/*.a
 %exclude %{_libdir}/ocaml/%{libname}/*.cmxa
@@ -72,6 +65,9 @@ make install
 %endif
 
 %changelog
+* Fri Dec 4 2020 Lucas Bickel <hairmare@rabe.ch> - 0.3.4-0.1
+- Bump to 0.3.4
+
 * Sun Dec  9 2018 Lucas Bickel <hairmare@rabe.ch> - 0.3.3-3
 - Cleanup and add separate -devel subpackage
 
